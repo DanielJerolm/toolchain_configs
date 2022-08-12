@@ -32,5 +32,5 @@ function(Validate_CMAKE_BUILD_TYPE_is_custom)
     message(FATAL_ERROR "CMAKE_BUILD_TYPE has an unknown or invalid value!\n"
                         "Pass -DCMAKE_BUILD_TYPE=... to cmake when configuring the project or use the cmake gui!\n"
                         "Allowed values: ${CMAKE_BUILD_TYPE_custom_values}")
-endif()
+  endif()
 endfunction()
