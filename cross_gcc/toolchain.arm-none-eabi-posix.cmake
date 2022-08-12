@@ -4,7 +4,7 @@
 # You can query the threading model configured at the compiler via "arm-none-eabi-gcc -v".
 # Look for "Thread model: posix".
 #
-# Do not use this directly! This is intended to be included by a settings.arm-none-eabi-posix.*.cmake - file.
+# Do not use this directly! This is intended to be included by a settings.arm-none-eabi-posix*.cmake - file.
 #
 
 #######################################

@@ -4,7 +4,7 @@
 #
 # for building for
 #
-#                a Cortex-M7 CPU with soft-fp, newlib nano, with RTOS present, and with rich C++ support.
+#                a Cortex-M7 CPU with soft-fp, newlib nano, with RTOS (POSIX) present, and with C++ support.
 #
 # ----------------------------------------------------------------------------------------------------------------------
 #
@@ -16,27 +16,6 @@
 # This file is intended to be passed to cmake during project configuration:
 # cmake -S <source folder> -B <build folder>
 #       -DCMAKE_TOOLCHAIN_FILE=toolchain_configs/cross_gcc/settings.arm-none-eabi-posix.cortex-m7+nofp.cmake
-#
-#
-# Useful snippets for CMakeLists.txt files used in conjunction with this toolchain file
-# -------------------------------------------------------------------------------------
-#
-# # Remove absolute pathes from file names contained in text strings.
-# target_compile_options(<target> PUBLIC -fmacro-prefix-map=${PROJECT_ROOT_DIR}/=/<target_dir>/)
-#
-# # Set target properties of an executable
-# set_target_properties(<target> PROPERTIES
-#                       LINKER_LANGUAGE CXX
-#                       LINK_FLAGS "-T${LINKER_SCRIPT}"
-#                       RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/output"
-#                       OUTPUT_NAME "executable"
-#                       SUFFIX ".elf"
-#                      )
-#
-# # print section sizes and create a hex- and bin-file
-# add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD COMMAND ${CMAKE_SIZE} "${CMAKE_BINARY_DIR}/output/executable.elf")
-# add_custom_target(executable.hex ALL DEPENDS ${PROJECT_NAME} COMMAND ${CMAKE_OBJCOPY} -Oihex "${CMAKE_BINARY_DIR}/output/executable.elf" "${CMAKE_BINARY_DIR}/output/executable.hex")
-# add_custom_target(executable.bin ALL DEPENDS ${PROJECT_NAME} COMMAND ${CMAKE_OBJCOPY} -Obinary "${CMAKE_BINARY_DIR}/output/executable.elf" "${CMAKE_BINARY_DIR}/output/executable.bin")
 #
 set(CMAKE_SYSTEM_NAME Generic)
 set(CMAKE_SYSTEM_PROCESSOR cortex-m7+nofp)
