@@ -14,7 +14,7 @@
 #   toolchain.arm-none-eabi-posix.cmake
 #
 # Target CPU:
-#   Cortex-A8 with soft-fp
+#   Cortex-M7 with soft-fp
 #
 # Target OS options:
 #   - Bare Metal (C only)
@@ -31,13 +31,13 @@
 # Usage:
 #   This file is intended to be passed to cmake during project configuration:
 #   cmake -S <source folder> -B <build folder>
-#         -DCMAKE_TOOLCHAIN_FILE=toolchain_configs/cross_gcc/settings.arm-none-eabi-posix.cortex-a8+nofp.cmake
+#         -DCMAKE_TOOLCHAIN_FILE=toolchain_configs/cross_gcc/toolchain.arm-none-eabi-posix.cortex-m7+nofp.cmake
 #
 
 
 
 set(CMAKE_SYSTEM_NAME Generic)
-set(CMAKE_SYSTEM_PROCESSOR cortex-a8+nofp)
+set(CMAKE_SYSTEM_PROCESSOR cortex-m7+nofp)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
@@ -67,7 +67,8 @@ list(APPEND compiler_options_warn_and_err_cxx "-Wall"
 ###############################################################
 # Global compiler options related to target CPU configuration
 ###############################################################
-list(APPEND target_cpu_conf "-mcpu=cortex-a8+nofp")
+list(APPEND target_cpu_conf "-mcpu=cortex-m7+nofp"
+                            "-mthumb")
 
 list(APPEND target_vfp_conf "-mfloat-abi=soft")
 

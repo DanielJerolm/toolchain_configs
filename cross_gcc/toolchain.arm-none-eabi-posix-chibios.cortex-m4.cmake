@@ -14,10 +14,10 @@
 #   toolchain.arm-none-eabi-posix.cmake
 #
 # Target CPU:
-#   Cortex-M7 with soft-fp
+#   Cortex-M4 with FPU
 #
 # Target OS:
-#   ChibiOS/RT
+#   ChibiOS/RT (FPU in thread and IRQ context)
 #
 # C/C++ libraries:
 #   - newlib nano
@@ -30,12 +30,12 @@
 # Usage:
 #   This file is intended to be passed to cmake during project configuration:
 #   cmake -S <source folder> -B <build folder>
-#         -DCMAKE_TOOLCHAIN_FILE=toolchain_configs/cross_gcc/settings.arm-none-eabi-posix-chibios.cortex-m7+nofp.cmake
+#         -DCMAKE_TOOLCHAIN_FILE=toolchain_configs/cross_gcc/toolchain.arm-none-eabi-posix-chibios.cortex-m4.cmake
 #
 
 
 
 # Defines for all languages (ASM, C, C++)
-list(APPEND compiler_defines_all "CORTEX_USE_FPU=0")
+list(APPEND compiler_defines_all "CORTEX_USE_FPU=1")
 
-include(${CMAKE_CURRENT_LIST_DIR}/settings.arm-none-eabi-posix.cortex-m7+nofp.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/toolchain.arm-none-eabi-posix.cortex-m4.cmake)

@@ -30,7 +30,7 @@
 # Usage:
 #   This file is intended to be passed to cmake during project configuration:
 #   cmake -S <source folder> -B <build folder>
-#         -DCMAKE_TOOLCHAIN_FILE=toolchain_configs/cross_gcc/settings.arm-none-eabi-posix-chibios.cortex-a8+nofp.cmake
+#         -DCMAKE_TOOLCHAIN_FILE=toolchain_configs/cross_gcc/toolchain.arm-none-eabi-posix-chibios.cortex-a8+nofp.cmake
 #
 
 
@@ -39,4 +39,4 @@
 list(APPEND compiler_defines_all "CORTEX_USE_FPU=0"
                                  "PRESERVE_VFP_REGISTERS=0")
 
-include(${CMAKE_CURRENT_LIST_DIR}/settings.arm-none-eabi-posix.cortex-a8+nofp.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/toolchain.arm-none-eabi-posix.cortex-a8+nofp.cmake)
