@@ -1,22 +1,41 @@
-# Toolchain file for
+# This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
+# If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
 #
-#                    an GCC with target triplet "arm-none-eabi" and threading model "POSIX"
+# Copyright (C) 2022 Daniel Jerolm
+
+
+########################################################################################################################
+#                                                   Toolchain file
+########################################################################################################################
 #
-# for building for
+# Compiler that will be used:
+#   GCC with target triplet "arm-none-eabi" and threading model "POSIX", according to
+#   toolchain.arm-none-eabi-posix.cmake
 #
-#                a Cortex-A8 CPU with soft-fp, newlib nano, with RTOS (POSIX) present, and with C++ support.
+# Target CPU:
+#   Cortex-A8 with soft-fp
 #
-# ----------------------------------------------------------------------------------------------------------------------
+# Target OS options:
+#   - Bare Metal (C only)
+#   - Any OS providing an implementation of the POSIX API as required by the compiler (only if C++ is required)
 #
-# Intended use
-# ------------
+# C/C++ libraries:
+#   - newlib nano
+#   - STL with RTTI and exceptions
 #
-# This file can be used to build static libraries and monolitic executable images.
+# Use cases:
+#   - Build static libraries
+#   - Build monolitic executable images
 #
-# This file is intended to be passed to cmake during project configuration:
-# cmake -S <source folder> -B <build folder>
-#       -DCMAKE_TOOLCHAIN_FILE=toolchain_configs/cross_gcc/settings.arm-none-eabi-posix.cortex-a8+nofp.cmake
+# Usage:
+#   This file is intended to be passed to cmake during project configuration:
+#   cmake -S <source folder> -B <build folder>
+#         -DCMAKE_TOOLCHAIN_FILE=toolchain_configs/cross_gcc/settings.arm-none-eabi-posix.cortex-a8+nofp.cmake
 #
+
+
+
 set(CMAKE_SYSTEM_NAME Generic)
 set(CMAKE_SYSTEM_PROCESSOR cortex-a8+nofp)
 

@@ -1,16 +1,34 @@
-# Toolchain file for
+# This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
+# If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
 #
-#                                              the NATIVE GCC
+# Copyright (C) 2022 Daniel Jerolm
+
+
+########################################################################################################################
+#                                                    Settings file
+########################################################################################################################
 #
-# for building for
+# Expected compiler:
+#   Host's native GCC
 #
-#                the LOCAL HOST, which is expected to be an x64 running LINUX.
+# Target:
+#   Local host, which is expected to be an x64 running Linux
 #
-# ----------------------------------------------------------------------------------------------------------------------
+# Target OS:
+#   Linux x64
 #
-# This is intended to be INCLUDED from the top-level CMakeLists.txt file.
-# This is NOT intended to be passed as a toolchain description file to cmake during project configuration.
+# Use cases:
+#   - Build static libraries
+#   - Build dynamic libraries
+#   - Build executables
 #
+# Usage:
+#   This is intended to be INCLUDED from the top-level CMakeLists.txt file.
+#   This is NOT intended to be passed as a toolchain description file to cmake during project configuration.
+
+
+
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 include(${CMAKE_CURRENT_LIST_DIR}/../utils.cmake)

@@ -1,15 +1,22 @@
-# Toolchain file for an GCC with target triplet "arm-none-eabi" and threading model "POSIX".
-# ------------------------------------------------------------------------------------------
+# This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
+# If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
 #
-# You can query the threading model configured at the compiler via "arm-none-eabi-gcc -v".
-# Look for "Thread model: posix".
+# Copyright (C) 2022 Daniel Jerolm
+
+
+########################################################################################################################
+#                                                   Toolchain file
+########################################################################################################################
 #
-# Do not use this directly! This is intended to be included by a settings.arm-none-eabi-posix*.cmake - file.
+# Compiler that will be used:
+#   GCC 10.3 with target triplet "arm-none-eabi" and threading model "POSIX", located in
+#   /opt/gcc-arm-none-eabi-posix-10.3
 #
 
-#######################################
-# Path to toolchain
-#######################################
+
+
+# path to toolchain
 set(TOOLCHAIN_PATH_N_PREFIX "/opt/gcc-arm-none-eabi-posix-10.3")
 
 
