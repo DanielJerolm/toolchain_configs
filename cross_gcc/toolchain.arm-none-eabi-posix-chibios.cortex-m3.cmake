@@ -29,10 +29,12 @@
 #
 # Usage:
 #   This file is intended to be passed to cmake during project configuration:
-#   cmake -S <source folder> -B <build folder>
-#         -DCMAKE_TOOLCHAIN_FILE=toolchain_configs/cross_gcc/toolchain.arm-none-eabi-posix-chibios.cortex-m3.cmake
+#   cmake -S <source folder> \
+#         -B <build folder> \
+#         -DTOOLCHAIN_VERSION=<desired version> \
+#         -DCMAKE_TOOLCHAIN_FILE=toolchain_configs/cross_gcc/toolchain.arm-none-eabi-posix-chibios.cortex-m3.cmake \
+#         -DCMAKE_BUILD_TYPE=<custom_debug | custom_release>
 #
-
 
 
 include(${CMAKE_CURRENT_LIST_DIR}/toolchain.arm-none-eabi-posix.cortex-m3.cmake)
